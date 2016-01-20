@@ -31,6 +31,25 @@ unset LD_LIBRARY_PATH
 exec /usr/bin/pulseaudio -n --use-pid-file=false -L module-udev-detect -L "'$4'"  --log-level=info
 EOF
 
+chmod a+x $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio
+
+cat << 'PATCH' > $INSTALLDIR/etc/init.d/patch
+--- thinlinc.init~	2016-01-20 15:49:01.621723999 +0000
++++ thinlinc.init	2016-01-20 15:54:38.737723999 +0000
+@@ -9,6 +9,8 @@
+ case "$1" in 
+ init)
+ 
++  HOME=/etc/skel
++  
+   # If the file already exists, it was probably downloaded by
+   # /etc/init.d/network on Thinstation 2.2 or later. 
+   #
+PATCH
+cd $INSTALLDIR/etc/init.d
+patch -p0 -l < $INSTALLDIR/etc/init.d/patch
+rm $INSTALLDIR/etc/init.d/patch
+
 echo -e "base\n" > $INSTALLDIR/dependencies
 echo -e "pulseaudio\n" >> $INSTALLDIR/dependencies
 
