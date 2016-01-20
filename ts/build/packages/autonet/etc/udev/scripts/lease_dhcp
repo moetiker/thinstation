@@ -32,11 +32,11 @@ case $1 in
                 echo "boot_file=$boot_file" >> /var/log/net/$INTERFACE
 #		env >> /var/log/lease_dhcp
 #		echo "local-pac-server=$local-pac-server" >> /var/log/net/$INTERFACE
-		if [ -n "$siaddr" ] ; then
-                        SERVER_IP=$siaddr
-                else
-                        SERVER_IP=$tftp
-                fi
+#		if [ -n "$siaddr" ] ; then
+#                       SERVER_IP=$siaddr
+#               else
+#                       SERVER_IP=$tftp
+#               fi
 		if [ -n "$NET_FILE_ALTERNATE" ] ; then
 			SERVER_IP=$NET_FILE_ALTERNATE
 		fi
