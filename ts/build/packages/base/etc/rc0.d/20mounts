@@ -38,3 +38,6 @@ ICEDIR='/tmp/.ICE-unix'
 mkdir ${ICEDIR}
 chown 0.10 ${ICEDIR}
 chmod 1777 ${ICEDIR}
+
+mkdir /root
+chmod go-rwx /root
