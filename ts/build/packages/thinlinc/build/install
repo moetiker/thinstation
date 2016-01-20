@@ -21,6 +21,15 @@ icon-gen thinlinc
 
 sed -i -e 's/needs="x11";/needs="x11"; menu="Connectivity";/g' $INSTALLDIR/lib/menu/thinlinc
 sed -i -e 's/ \[fs\]//g' $INSTALLDIR/lib/menu/thinlinc
+mv $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio lib/thinlinc/lib/tlclient/pulseaudio.orig
+cat $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio < "EOF"
+#!/bin/sh
+unset LD_LIBRARY_PATH
+/usr/bin/pulseaudio --kill
+exec /usr/bin/pulseaudio -n --use-pid-file=false -L module-udev-detect -L "$4"  --log-level=info
+EOF
 echo -e "base\n" > $INSTALLDIR/dependencies
+echo -e "pulseaudio\n" >> $INSTALLDIR/dependencies
+
 
 exit $returnval
