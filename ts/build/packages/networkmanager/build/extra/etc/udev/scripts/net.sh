@@ -55,10 +55,10 @@ log_interface()
 	echo "CLIENT_IP=$ip"				>> /var/log/net/$INTERFACE
 	echo "CLIENT_GATEWAY=$gw"			>> /var/log/net/$INTERFACE
 	echo "SUBNET=$subnet"				>> /var/log/net/$INTERFACE
-	echo "SERVER_IP=$DHCP4_TFTP_SERVER_NAME"	>> /var/log/net/$INTERFACE
+#	echo "SERVER_IP=$DHCP4_TFTP_SERVER_NAME"	>> /var/log/net/$INTERFACE
 	echo "NETWORKUP=$NETWORKUP"			>> /var/log/net/$INTERFACE
 	echo "NETMASK_SIZE=$mask"			>> /var/log/net/$INTERFACE
-	echo "SERVER_NAME=$saddr"			>> /var/log/net/$INTERFACE
+#	echo "SERVER_NAME=$saddr"			>> /var/log/net/$INTERFACE
 	echo "NET_USE=$NET_USE"				>> /var/log/net/$INTERFACE
 	echo "NET_DHCP_TIMEOUT=$NET_DHCP_TIMEOUT"	>> /var/log/net/$INTERFACE
 }
