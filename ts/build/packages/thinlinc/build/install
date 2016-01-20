@@ -22,9 +22,9 @@ icon-gen thinlinc
 sed -i -e 's/needs="x11";/needs="x11"; menu="Connectivity";/g' $INSTALLDIR/lib/menu/thinlinc
 sed -i -e 's/ \[fs\]//g' $INSTALLDIR/lib/menu/thinlinc
 
-mv $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio lib/thinlinc/lib/tlclient/pulseaudio.orig
+mv $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio.orig
 
-cat $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio < "EOF"
+cat <<'EOF' > $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio
 #!/bin/sh
 unset LD_LIBRARY_PATH
 /usr/bin/pulseaudio --kill
