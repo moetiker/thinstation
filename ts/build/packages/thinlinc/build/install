@@ -33,7 +33,7 @@ EOF
 
 chmod a+x $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio
 
-cat << 'PATCH' > $INSTALLDIR/etc/init.d/patch
+cat << 'PATCH' > $INSTALLDIR/etc/init.d/patch.homedir
 --- thinlinc.init~	2016-01-20 15:49:01.621723999 +0000
 +++ thinlinc.init	2016-01-20 15:54:38.737723999 +0000
 @@ -9,6 +9,8 @@
@@ -46,8 +46,8 @@ cat << 'PATCH' > $INSTALLDIR/etc/init.d/patch
    # /etc/init.d/network on Thinstation 2.2 or later. 
    #
 PATCH
-cd $INSTALLDIR/etc/init.d
-patch -p0 -l < $INSTALLDIR/etc/init.d/patch
+
+( cd $INSTALLDIR/etc/init.d ; patch -p0 < patch.homedir )
 rm $INSTALLDIR/etc/init.d/patch
 
 echo -e "base\n" > $INSTALLDIR/dependencies
