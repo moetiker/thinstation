@@ -48,7 +48,7 @@ cat << 'PATCH' > $INSTALLDIR/etc/init.d/patch.homedir
 PATCH
 
 ( cd $INSTALLDIR/etc/init.d ; patch -p0 < patch.homedir )
-rm $INSTALLDIR/etc/init.d/patch
+rm $INSTALLDIR/etc/init.d/patch.homedir
 
 echo -e "base\n" > $INSTALLDIR/dependencies
 echo -e "pulseaudio\n" >> $INSTALLDIR/dependencies
