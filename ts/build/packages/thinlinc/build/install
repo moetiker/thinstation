@@ -28,7 +28,7 @@ cat <<'EOF' > $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio
 #!/bin/sh
 unset LD_LIBRARY_PATH
 /usr/bin/pulseaudio --kill
-exec /usr/bin/pulseaudio -n --use-pid-file=false -L module-udev-detect -L "'$4'"  --log-level=info
+exec /usr/bin/pulseaudio -n --use-pid-file=false -L module-udev-detect -L "$4"  --log-level=info
 EOF
 
 chmod a+x $INSTALLDIR/lib/thinlinc/lib/tlclient/pulseaudio
